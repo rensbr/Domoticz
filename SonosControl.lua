@@ -15,16 +15,16 @@ return {
 		}
 	},
 	execute = function(domoticz, device)
-	    --Declarations
-		local TV = domoticz.devices(47) -- TV woonkamer
-		local SonosControl = domoticz.devices(202) -- Sonos Woonkamer
-		local IemandThuis = domoticz.devices(54) -- Iemand Thuis
-		local Time = require('Time') --Time function
-        local CurrentTime = Time() --Current time
+		 --Declarations
+		local TV 		= domoticz.devices(47) -- TV woonkamer
+		local SonosControl 	= domoticz.devices(202) -- Sonos Woonkamer
+		local IemandThuis 	= domoticz.devices(54) -- Iemand Thuis
+		local Time 		= require('Time') --Time function
+		local CurrentTime 	= Time() --Current time
 		
 		--Function
 		if (TV.active) or (not IemandThuis.active) then 
-		    SonosControl.switchSelector(20) --Set to Pauze
-	    end
+			SonosControl.switchSelector(20) --Set to Pauze
+	    	end
 	end
 }
