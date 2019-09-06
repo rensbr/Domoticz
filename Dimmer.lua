@@ -24,8 +24,8 @@ return {
 		    if (Light1.level > 0 and Light1.level < 99) then
 		        Light1.dimTo(Light1.level + 20)
 		    elseif (Light1.level == 100) then
-	            Light1.dimTo(20)
-	        end
-        end
+	            	Light1.dimTo(20)
+	            end
+        	end
 	end
 }
