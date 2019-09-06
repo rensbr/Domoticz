@@ -20,12 +20,12 @@ return {
             --*------------------------------------------------------------------------------------*--
             
             --Declarations
-            local Time = require('Time') --Time function
-            local CurrentTime = Time() --Current time
-            local Day = CurrentTime.day
-            local Month = CurrentTime.month
-            local Year = CurrentTime.year
-            local Count = 60
+            local Time          = require('Time') --Time function
+            local CurrentTime   = Time() --Current time
+            local Day           = CurrentTime.day
+            local Month         = CurrentTime.month
+            local Year          = CurrentTime.year
+            local Count         = 60
             local String
             
             --Function
