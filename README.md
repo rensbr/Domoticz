@@ -1,2 +1,2 @@
 # Domoticz
-Domoticz Scripts
+This repo contains all the used Domoticz Scripts.
