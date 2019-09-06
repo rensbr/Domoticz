@@ -15,9 +15,9 @@ return {
     },
     execute = function(domoticz, device)
         --Declarations
-		local Switch = domoticz.devices(98) --Switch
-		local LightWoon = domoticz.devices(139) --Light Woonkamer
-		local LightKeuken = domoticz.devices(172) --Light Keuken
+	local Switch 		= domoticz.devices(98) --Switch
+	local LightWoon 	= domoticz.devices(139) --Light Woonkamer
+	local LightKeuken	= domoticz.devices(172) --Light Keuken
         
         --Function
         if (Switch.state == 'Switch 1') then
