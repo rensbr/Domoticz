@@ -15,9 +15,9 @@ return {
 	},
 	execute = function(domoticz, device)
 		--Declarations
-		local Light = domoticz.devices(118) --Light Berging
+		local Light 	= domoticz.devices(118) --Light Berging
 		local TimeofDay = domoticz.devices(73) --DayNight
-		local DS = domoticz.devices(91) -- DS Opslag
+		local DS 	= domoticz.devices(91) -- DS Opslag
 		
 		--Function
 		if (DS.active) then
