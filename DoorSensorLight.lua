@@ -21,13 +21,13 @@ return {
 		
 		--Function
 		if (DS.active) then
-		    if (TimeofDay.state == 'Evening' or TimeofDay.state == 'Day') then -- Door sensor open and Day or Evening
-		        Light.dimTo(100) -- Turn on 100%
-		    elseif (TimeofDay.state == 'Night') then -- Door sensor Open and Night
-		        Light.dimTo(40) -- Turn on 40%
-	        end
+			if (TimeofDay.state == 'Evening' or TimeofDay.state == 'Day') then -- Door sensor open and Day or Evening
+				Light.dimTo(100) -- Turn on 100%
+			elseif (TimeofDay.state == 'Night') then -- Door sensor Open and Night
+				Light.dimTo(40) -- Turn on 40%
+	        	end
 		else
-		    Light.switchOff().checkFirst() --Turn off
+		    	Light.switchOff().checkFirst() --Turn off
 		end
 	end
 }
