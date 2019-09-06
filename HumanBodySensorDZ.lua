@@ -16,9 +16,9 @@ return {
 	},
 	execute = function(domoticz, device)
 		--Declarations
-		local Light = domoticz.devices(119) --Lampen WC
+		local Light 	= domoticz.devices(119) --Lampen WC
 		local TimeofDay = domoticz.devices(73) --DayNight
-		local HBS = domoticz.devices(191) -- HBS WC
+		local HBS 	= domoticz.devices(191) -- HBS WC
 		
 		--Function
 		if ((HBS.active) and (TimeofDay.state == 'Evening' or TimeofDay.state == 'Day')) then -- sensor on and Evening or Day
