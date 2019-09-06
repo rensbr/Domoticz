@@ -14,25 +14,25 @@ return {
 	},
     execute = function(domoticz, device)
         --Declarations
-        local json = (loadfile "/home/pi/domoticz/scripts/lua/JSON.lua")()
-        local sonos=assert(io.popen('curl http://localhost:5005/Woonkamer/state'))
-        local SonosControl = domoticz.devices(202) -- Sonos Woonkamer
-        local SonosStatus = domoticz.devices(203) -- Sonos Woonkamer Status
+        local json 		= (loadfile "/home/pi/domoticz/scripts/lua/JSON.lua")()
+        local sonos		= assert(io.popen('curl http://localhost:5005/Woonkamer/state'))
+        local SonosControl 	= domoticz.devices(202) -- Sonos Woonkamer
+        local SonosStatus 	= domoticz.devices(203) -- Sonos Woonkamer Status
         local Sonostext
         local SonosState
-        local status = sonos:read('*all')
+        local status 		= sonos:read('*all')
         sonos:close()
-        local jsonStatus = json:decode(status)
+        local jsonStatus 	= json:decode(status)
         
         --Get states from json file
-        playerstate = jsonStatus['playbackState']
-        currentartist = jsonStatus['currentTrack']['artist']
-        currenttitle = jsonStatus['currentTrack']['title']
-        currentalbum = jsonStatus['currentTrack']['album']
-        source = jsonStatus['currentTrack']['type']
-        nextartist = jsonStatus['nextTrack']['artist']
-        nexttitle = jsonStatus['nextTrack']['title']
-        nextalbum = jsonStatus['nextTrack']['album']
+        playerstate 	= jsonStatus['playbackState']
+        currentartist 	= jsonStatus['currentTrack']['artist']
+        currenttitle 	= jsonStatus['currentTrack']['title']
+        currentalbum 	= jsonStatus['currentTrack']['album']
+        source 		= jsonStatus['currentTrack']['type']
+        nextartist 	= jsonStatus['nextTrack']['artist']
+        nexttitle 	= jsonStatus['nextTrack']['title']
+        nextalbum 	= jsonStatus['nextTrack']['album']
         
         --Function
         if (playerstate == 'PLAYING') then
