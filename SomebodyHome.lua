@@ -16,9 +16,9 @@ return {
 	},
 	execute = function(domoticz, device)
 		 --Declarations
-		local IemandThuis = domoticz.devices(54) -- Iemand Thuis
-		local One = domoticz.devices(52) -- Person one 
-		local Two = domoticz.devices(53) -- Person two
+		local IemandThuis 	= domoticz.devices(54) -- Iemand Thuis
+		local One 		= domoticz.devices(52) -- Person one 
+		local Two 		= domoticz.devices(53) -- Person two
 		
         --Function
         if (One.active) or (Two.active) then -- When somebody is at home
