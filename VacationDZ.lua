@@ -18,12 +18,12 @@ return {
 		local IemandThuis = domoticz.devices(54) -- Iemand Thuis
 		local Vakantie = domoticz.devices(55) -- Vakantie
 		
-        --Function
-        if (not IemandThuis.active) then -- When nobody is home
-            Vakantie.switchOn().afterHour(24) -- Switch vakantie on after 24 hours
-        elseif (IemandThuis.active) then -- if somebody is home in 24 hours, cancel the command and turn off vakantie
-            Vakantie.cancelQueuedCommands()
-            Vakantie.switchOff().checkFirst()
-        end
+        	--Function
+        	if (not IemandThuis.active) then -- When nobody is home
+            		Vakantie.switchOn().afterHour(24) -- Switch vakantie on after 24 hours
+        	elseif (IemandThuis.active) then -- if somebody is home in 24 hours, cancel the command and turn off vakantie
+            		Vakantie.cancelQueuedCommands()
+            		Vakantie.switchOff().checkFirst()
+        	end
 	end
 }
