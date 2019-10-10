@@ -13,24 +13,24 @@ return {
 			52  -- Somebody gets Home
 		},
 		variables = {
-		    1 -- VacuumNumber
+		    	1 -- VacuumNumber
 	    }
 	},
 	execute = function(domoticz, device)
-	    --Declarations
-	    local Home              = domoticz.devices(52) -- Rens Home
-	    local VacuumZones       = domoticz.devices(181) -- Xiaomi Vacuum Zones: Dock(0) / Kattenbakken(10) / Woonkamer(20) / Keuken(30) / Slaapkamer(40) / Hal(50) / Badkamer(60) / Kantoor(70) / Prullenbak(80)
-	    local VacuumNumber      = domoticz.variables(1) -- Variable VacuumNumber
-	    local Time              = require('Time') --Time function
-      local CurrentTime       = Time() --Current time
+	--Declarations
+	local Home              = domoticz.devices(52) -- Rens Home
+	local VacuumZones       = domoticz.devices(181) -- Xiaomi Vacuum Zones: Dock(0) / Kattenbakken(10) / Woonkamer(20) / Keuken(30) / Slaapkamer(40) / Hal(50) / Badkamer(60) / Kantoor(70) / Prullenbak(80)
+	local VacuumNumber      = domoticz.variables(1) -- Variable VacuumNumber
+	local Time              = require('Time') --Time function
+      	local CurrentTime       = Time() --Current time
 	    
-		--Function
+	--Function
 		if (VacuumNumber >= 5) then
-		    if (Home.active) then 
-		        VacuumZones.switchSelector(80) -- Go to Zone Prullenbak
-		        domoticz.notify('Mi Vacuum Cleaner','The Vacuumcleaner is full and is going to trashbin',domoticz.PRIORITY_NORMAL)
-		        VacuumNumber.set(0)
-	        end
-        end
+			if (Home.active) then 
+		        	VacuumZones.switchSelector(80) -- Go to Zone Prullenbak
+		        	domoticz.notify('Mi Vacuum Cleaner','The Vacuumcleaner is full and is going to trashbin',domoticz.PRIORITY_NORMAL)
+		        	VacuumNumber.set(0)
+	        	end
+        	end
 	end
 }
