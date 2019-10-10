@@ -39,7 +39,7 @@ return {
 		if (StofzuigerState.rawData[1] == 'In Error') then
 			domoticz.notify('Mi Vacuum Cleaner','The Vacuumcleaner is in error',domoticz.PRIORITY_HIGH)
             			   
-		    	if (VacuumErrorNumber < 5) then -- try to restart vacuum when in error for 5 times
+		    	if (VacuumErrorNumber < 5) then -- try to restart vacuum when in error for maximum 5 times
 			        VacuumErrorNumber.set(VacuumErrorNumber.value + 1)
 			        StofzuigerCont.switchSelector(10).checkFirst() 
 	        	else
