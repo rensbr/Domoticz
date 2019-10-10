@@ -5,6 +5,7 @@
 --Changelog: 
 --Source: -
 --Description: Used to send the notifications from Mi Vacuum Cleaner and put some settings
+--Pre: Add UserVariable
 --*------------------------------------------------------------------------------------*--
 
 return {
@@ -18,6 +19,7 @@ return {
 	    local StofzuigerState 	= domoticz.devices(14) -- Xiaomi Vacuum status: Charging / Paused / Cleaning / Waiting / Back to home / Sleeping / In Error
 	    local StofzuigerCont 	= domoticz.devices(15) -- Xiaomi Vacuum control: Clean(10) / Home(20) / Spot(30) / Pauze(40) / Stop(50) / Find(60)
 	    local StofzuigerFan 	= domoticz.devices(16) -- Xiaomi Vacuum Fan: Quiet(10) / Balanced(20) / Turbo(30) / Max (40)
+	    local VacuumErrorNumber 	= domoticz.variables(2) -- Variable VacuumErrorNumber		
 	    
 		--Function
 		print('Mi Vacuum status has changed')
@@ -35,8 +37,14 @@ return {
 		end
 		
 		if (StofzuigerState.rawData[1] == 'In Error') then
-		    	domoticz.notify('Mi Vacuum Cleaner','The Vacuumcleaner is in error',domoticz.PRIORITY_HIGH)
-            		--StofzuigerCont.switchSelector(10).checkFirst() --Set Vacuum back on when in error
+			domoticz.notify('Mi Vacuum Cleaner','The Vacuumcleaner is in error',domoticz.PRIORITY_HIGH)
+            			   
+		    	if (VacuumErrorNumber < 5) then -- try to restart vacuum when in error for 5 times
+			        VacuumErrorNumber.set(VacuumErrorNumber.value + 1)
+			        StofzuigerCont.switchSelector(10).checkFirst() 
+	        	else
+	            		VacuumErrorNumber.set(0)
+            		end
 		end
 		
 		if (StofzuigerState.rawData[1] == 'Paused') then
