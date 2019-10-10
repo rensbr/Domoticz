@@ -4,27 +4,27 @@
 --Last update: 
 --Changelog:
 --Source: -
---Description: Made a loop with a UserVariable (and it is an example to work with UserVariables
--- or when nobody is home
+--Description: Made a loop with a UserVariable (and it is an example to work with UserVariables)
+--Pre: Create an UserVariable with the name TestVar
 --*------------------------------------------------------------------------------------*--
 
 return {
 	on = {
-		variables = {
-		    3 -- TestVar
+	        variables = {
+		        1 -- TestVar
 	    }
 	},
 	execute = function(domoticz, device)
-		--Declerations
-		local TestVar = domoticz.variables(1)
+	        --Declerations
+	        local TestVar = domoticz.variables(1)
     
-		--Function
-        if TestVar.value < 5 then
-            TestVar.set(TestVar.value +1)
-        else
-            TestVar.set(0)
-        end
+                --Function
+                if TestVar.value < 5 then
+                    TestVar.set(TestVar.value +1)
+                else
+                    TestVar.set(0)
+                end
       
-    print(TestVar.value)
-	end
+                print(TestVar.value)
+        end
 }
