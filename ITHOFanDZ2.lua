@@ -9,31 +9,31 @@
 
 return {
 	on = {
-        timer = {
-            'at 06:00-23:15 every 2 minutes'
-        },
+        	timer = {
+            		'at 06:00-23:15 every 2 minutes'
+        	},
 	},
 	execute = function(domoticz, device)
-		 --Declarations
+ 		--Declarations
 		local bad               = domoticz.devices(102) --Humidity badkamer
 		local fan               = domoticz.devices(195) -- ITHO Fan: off (0), level1 (10), level2 (20), level3 (30)
 		local PrevHum           = domoticz.variables(4) -- Variable PrevHum
 		local Time              = require('Time') --Time function
-    local CurrentTime       = Time() --Current time
+    		local CurrentTime       = Time() --Current time
       
-    --Function
-    if ((bad.humidity-PrevHum.value) > 5) then 
-        if (fan.level ~= 30) then
-            fan.switchSelector(30) -- Set fan to level 3
-        end
-    elseif (PrevHum.value-bad.humidity > 8) then
-        if (fan.level ~= 10) then
-            fan.switchSelector(10) -- Set fan to level1
-        end
-    end
+    		--Function
+    		if ((bad.humidity-PrevHum.value) > 5) then 
+        		if (fan.level ~= 30) then
+            			fan.switchSelector(30) -- Set fan to level 3
+        		end
+    		elseif (PrevHum.value-bad.humidity > 8) then
+        		if (fan.level ~= 10) then
+            			fan.switchSelector(10) -- Set fan to level1
+        		end
+    		end
      
-    if bad.humidity ~= PrevHum.value then
-        PrevHum.set(bad.humidity)
-    end
+    		if bad.humidity ~= PrevHum.value then
+        		PrevHum.set(bad.humidity)
+    		end
 	end
 }
