@@ -18,7 +18,7 @@ return {
 	},
 	execute = function(domoticz, device)
 	--Declarations
-	local Home              = domoticz.devices(52) -- Rens Home
+	local Home              = domoticz.devices(52) -- Somebody Home
 	local VacuumZones       = domoticz.devices(181) -- Xiaomi Vacuum Zones: Dock(0) / Kattenbakken(10) / Woonkamer(20) / Keuken(30) / Slaapkamer(40) / Hal(50) / Badkamer(60) / Kantoor(70) / Prullenbak(80)
 	local VacuumNumber      = domoticz.variables(1) -- Variable VacuumNumber
 	local Time              = require('Time') --Time function
