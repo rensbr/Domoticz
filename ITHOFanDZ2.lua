@@ -26,7 +26,7 @@ return {
         if (fan.level ~= 30) then
             fan.switchSelector(30) -- Set fan to level 3
         end
-    elseif (PrevHum.value-bad.humidity > 5) then
+    elseif (PrevHum.value-bad.humidity > 8) then
         if (fan.level ~= 10) then
             fan.switchSelector(10) -- Set fan to level1
         end
