@@ -1,23 +1,26 @@
 --*------------------------------------------------------------------------------------*--
 --Creator: Rens
 --Date: 26-04-2019
---Last update: 20-08-2019
---Changelog:
+--Last update: 03-12-2019
+--Changelog: Added local SwitchNum
 --Source: https://gathering.tweakers.net/forum/list_message/58490276#58490276
 --Description: Used to switch on lights with an Xiaomi Switch
 --*------------------------------------------------------------------------------------*--
 
+--Declarations
+local SwitchNum = 98
+
 return {
     on = {
         devices = {
-            98 -- Switch 
+            SwitchNum -- Woonkamer Schakelaar  
         }                               
     },
     execute = function(domoticz, device)
         --Declarations
-	local Switch 		= domoticz.devices(98) --Switch
-	local LightWoon 	= domoticz.devices(139) --Light Woonkamer
-	local LightKeuken	= domoticz.devices(172) --Light Keuken
+		local Switch        = domoticz.devices(SwitchNum) --Woonkamer Schakelaar
+		local LightWoon     = domoticz.devices(251) --Lampen Woonkamer
+		local LightKeuken   = domoticz.devices(253) -- Lampen Keuken
         
         --Function
         if (Switch.state == 'Switch 1') then
