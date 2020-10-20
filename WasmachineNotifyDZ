@@ -1,0 +1,31 @@
+--*------------------------------------------------------------------------------------*--
+--Creator: Rens
+--Date: 20-10-2020
+--Last update: 
+--Changelog: 
+--Source: -
+--Description: Checks the energyusage and gives messages when device is off
+--*------------------------------------------------------------------------------------*--
+
+return {
+	on = {
+		devices = {
+			[442] =  { 'between 07:00 and 23:15' } -- energyusage
+		},
+	},
+	execute = function(domoticz, device)
+		 --Declarations
+		local Energy          = domoticz.devices(442) --Humidity badkamer
+		local Notify           = domoticz.variables(5) -- Variable PrevHum
+		local Time              = require('Time') --Time function
+        local CurrentTime       = Time() --Current time
+        --Function
+        
+        if Energy.actualWatt > 100 then -- set notify bit
+            Notify.set(1)
+        elseif (Energy.actualWatt < 5 and Notify.value == 1) then -- send notification and reset notify bit
+            Notify.set(0)
+            domoticz.notify('Wasmachine','De wasmachine is klaar',domoticz.PRIORITY_LOW)
+        end
+	end
+}
