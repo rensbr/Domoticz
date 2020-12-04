@@ -29,7 +29,7 @@ return {
             local String
             
             --Function
-            url = ('curl  "http://dataservice.deafvalapp.nl/dataservice/DataServiceServlet?service=OPHAALSCHEMA&land=NL&postcode=' .. Zipcode ..'&straatId=0&huisnr=' .. Number .. '"') 
+            url = ('curl  "https://dataservice.deafvalapp.nl/dataservice/DataServiceServlet?service=OPHAALSCHEMA&land=NL&postcode=' .. Zipcode ..'&straatId=0&huisnr=' .. Number .. '"') 
             local f = io.popen(url) --Get the data
             
             while (true) do 
